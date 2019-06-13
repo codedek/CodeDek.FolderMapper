@@ -3,10 +3,216 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:FolderMapper"
+        xmlns:local="clr-namespace:FolderMapper.ViewModels"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="{Binding Title}"
+        MinHeight="{Binding MinHeight}"
+        MinWidth="{Binding MinWidth}"
+        Background="{Binding BackgroundColor}"
+        Height="400"
+        Width="600">
+
+    <Window.DataContext>
+        <local:MainViewModel x:Name="mvm" />
+    </Window.DataContext>
+
+    <Window.Resources>
+        <Style TargetType="TextBlock">
+            <Setter Property="Foreground"
+                    Value="Green" />
+            <Setter Property="FontSize"
+                    Value="13" />
+            <Setter Property="Padding"
+                    Value="0,5" />
+        </Style>
+
+        <Style TargetType="TextBox">
+            <Setter Property="Foreground"
+                    Value="#FF383838" />
+            <Setter Property="Margin"
+                    Value="0,5" />
+            <Setter Property="Padding"
+                    Value="2,5" />
+        </Style>
+
+        <Style TargetType="Button">
+            <Setter Property="Margin"
+                    Value="0,5" />
+            <Setter Property="Padding"
+                    Value="13,5" />
+        </Style>
+
+        <Style TargetType="ComboBox">
+            <Setter Property="Padding"
+                    Value="6" />
+            <Setter Property="HorizontalContentAlignment"
+                    Value="Center" />
+        </Style>
+
+        <Style TargetType="ListViewItem">
+            <Setter Property="Width"
+                    Value="Auto" />
+            <Setter Property="HorizontalContentAlignment"
+                    Value="Stretch" />
+            <Style.Triggers>
+                <DataTrigger Binding="{Binding Path=FieldDef.DispDetail, Mode=OneWay}"
+                             Value="False">
+                    <Setter Property="Visibility"
+                            Value="Collapsed" />
+                </DataTrigger>
+            </Style.Triggers>
+        </Style>
+    </Window.Resources>
+
     <Grid>
-        
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="13" />
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="13" />
+        </Grid.ColumnDefinitions>
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="13" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="3" />
+        </Grid.RowDefinitions>
+
+        <TabControl Grid.Row="1"
+                    Grid.Column="1">
+            <TabItem Header="Map"
+                     DataContext="{Binding MapViewModel}">
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="13" />
+                        <ColumnDefinition Width="65" />
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="Auto" />
+                        <ColumnDefinition Width="13" />
+                    </Grid.ColumnDefinitions>
+
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="13" />
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="13" />
+                    </Grid.RowDefinitions>
+
+                    <TextBlock Grid.Column="1"
+                               Grid.Row="1"
+                               Grid.ColumnSpan="3"
+                               Text="Drive Letter" />
+                    <ComboBox Grid.Column="1"
+                              Grid.Row="2"
+                              ItemsSource="{Binding DriveLetters, ElementName=mvm}"
+                              SelectedIndex="{Binding SelectedIndex, UpdateSourceTrigger=PropertyChanged}" />
+                    <TextBlock Grid.Column="1"
+                               Grid.Row="3"
+                               Grid.ColumnSpan="3"
+                               Text="Path to map to drive letter" />
+                    <TextBox Grid.Column="1"
+                             Grid.Row="4"
+                             Grid.ColumnSpan="3"
+                             VerticalContentAlignment="Center"
+                             Text="{Binding SelectedPath, UpdateSourceTrigger=PropertyChanged}" />
+                    <Button Grid.Column="4"
+                            Grid.Row="4"
+                            Content="Select..."
+                            Command="{Binding SelectCmd}" />
+                    <Button Grid.Column="1"
+                            Grid.Row="5"
+                            Grid.ColumnSpan="4"
+                            Content="Map"
+                            Command="{Binding MapCmd}" />
+                </Grid>
+            </TabItem>
+
+            <TabItem Header="Unmap"
+                     DataContext="{Binding UnMapViewModel}">
+
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="13" />
+                        <ColumnDefinition Width="65" />
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="100" />
+                        <ColumnDefinition Width="13" />
+                    </Grid.ColumnDefinitions>
+
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="13" />
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="*" />
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="13" />
+                    </Grid.RowDefinitions>
+
+                    <TextBlock Grid.Column="1"
+                               Grid.Row="1"
+                               Grid.ColumnSpan="3"
+                               Text="Drive Letter" />
+                    <ComboBox Grid.Column="1"
+                              Grid.Row="2"
+                              ItemsSource="{Binding DriveLetters, ElementName=mvm}"
+                              SelectedIndex="{Binding SelectedIndex, UpdateSourceTrigger=PropertyChanged}" />
+                    <Button Grid.Column="2"
+                            Grid.Row="2"
+                            Grid.ColumnSpan="3"
+                            Margin="4,0,0,0"
+                            Content="Get mapped paths"
+                            Command="{Binding GetMappedPathsCmd}" />
+                    <TextBlock Grid.Column="1"
+                               Grid.Row="4"
+                               Grid.ColumnSpan="3"
+                               Text="Paths mapped to drive letter" />
+                    <ListBox Grid.Column="1"
+                             Grid.Row="5"
+                             Grid.ColumnSpan="4"
+                             ItemsSource="{Binding MappedPaths, UpdateSourceTrigger=PropertyChanged}"
+                             SelectedIndex="{Binding SelectedMappedPathIndex, UpdateSourceTrigger=PropertyChanged}" />
+
+                    <Grid Grid.Column="1"
+                          Grid.Row="6"
+                          Grid.ColumnSpan="4"
+                          Margin="0,5">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="Auto" />
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="*" />
+                        </Grid.ColumnDefinitions>
+
+                        <Button Grid.Column="1" Content="Reset" Margin="0,0,5,0"
+                                Command="{Binding ResetCmd}" />
+                        <Button Grid.Column="2" Content="Clear Selection" Margin="0"
+                                Command="{Binding ClearSelectionCmd}" />
+                        <Button Grid.Column="3" Content="UnMap" Margin="5,0,0,0"
+                                Command="{Binding UnMapCmd}" />
+
+                    </Grid>
+                </Grid>
+            </TabItem>
+
+            <TabItem Header="About"
+                     DataContext="{Binding AboutViewModel}">
+                <TextBlock Text="Hello World" />
+            </TabItem>
+        </TabControl>
+
+        <TextBlock Grid.Row="2"
+                   Grid.Column="1"
+                   Text="{Binding Status}"
+                   Foreground="{Binding StatusColor}" />
     </Grid>
+
 </Window>
