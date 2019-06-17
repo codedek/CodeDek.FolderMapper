@@ -205,7 +205,14 @@
 
             <TabItem Header="About"
                      DataContext="{Binding AboutViewModel}">
-                <TextBlock Text="Hello World" />
+                <StackPanel Margin="13">
+                    <TextBlock Text="Creator: CodeDek" />
+                    <TextBlock Text="Version: 0.0.0.0" />
+                    <TextBlock Text="Check for update: Update available: 0.0.0.0" />
+                    <TextBlock Text="Source: GitHub.com" />
+                    <TextBlock Text="Product Url: GitHub.com\release\FolderMapper01" />
+                    <TextBlock Text="Support me on Patreon: bla.com" />
+                </StackPanel>
             </TabItem>
         </TabControl>
 

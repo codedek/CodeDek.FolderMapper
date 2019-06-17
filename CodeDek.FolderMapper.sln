@@ -5,6 +5,11 @@ VisualStudioVersion = 16.0.29001.49
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FolderMapper", "src\FolderMapper\FolderMapper.csproj", "{18BDD48C-CA6A-4FA7-A07E-2B557E2A9E6D}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "other", "other", "{58803E17-535C-4541-8678-48A74C5B3738}"
+	ProjectSection(SolutionItems) = preProject
+		C:\Users\FirstGear\Desktop\_tmp_\folderMapper.png = C:\Users\FirstGear\Desktop\_tmp_\folderMapper.png
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
