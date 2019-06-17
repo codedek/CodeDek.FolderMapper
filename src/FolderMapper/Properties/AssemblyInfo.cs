@@ -8,11 +8,11 @@ using System.Windows;
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
 [assembly: AssemblyTitle("FolderMapper")]
-[assembly: AssemblyDescription("")]
+[assembly: AssemblyDescription("Easily maps a windows folder to a drive letter.")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("CodeDek")]
 [assembly: AssemblyProduct("FolderMapper")]
-[assembly: AssemblyCopyright("Copyright ©  2019")]
+[assembly: AssemblyCopyright("© 2019 CodeDek. All Rights Reserved.")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 
@@ -53,3 +53,5 @@ using System.Windows;
 // [assembly: AssemblyVersion("1.0.*")]
 [assembly: AssemblyVersion("0.2.0.0")]
 [assembly: AssemblyFileVersion("0.2.0.0")]
+[assembly: NeutralResourcesLanguage("en-US")]
+
