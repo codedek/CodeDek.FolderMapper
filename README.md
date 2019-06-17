@@ -6,7 +6,7 @@ This is a Windows App used for mapping or unmapping any folder to and from a dri
 2. Press the Select button to select a folder
 3. Click Map
 
-![Map a folder](art\\map.png)
+![Map a folder](art/map.png)
 
 ## Unmap Folder from drive letter
 1. Select the drive letter to unmap
@@ -17,7 +17,7 @@ This is a Windows App used for mapping or unmapping any folder to and from a dri
 - The Clear Selection Button clears the selected item from the list.
 - The Reset Button resets everything on the tab to its defaults.
 
-![Unmap a folder](art\\unmap.png)
+![Unmap a folder](art/unmap.png)
 
 ### TODO:
 
