@@ -16,5 +16,6 @@ namespace FolderMapper.ViewModels
         public static IList<string> DriveLetters => new[] { "None", "A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z" };
         public MapViewModel MapViewModel { get; } = new MapViewModel();
         public UnMapViewModel UnMapViewModel { get; } = new UnMapViewModel();
+        public AboutViewModel AboutViewModel { get; set; } = new AboutViewModel();
     }
 }
