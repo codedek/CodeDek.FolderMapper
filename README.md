@@ -10,6 +10,7 @@ This is a Windows App used for mapping or unmapping any folder to and from a dri
 
 **Figure 1** Map Folder
 
+
 ### Unmap Folder from drive letter
 1. Select the drive letter to unmap
 2. Click Get mapped paths (all paths mapped to the drive letter will be listed)
@@ -23,8 +24,13 @@ This is a Windows App used for mapping or unmapping any folder to and from a dri
 
 **Figure 2** Unmap Folder
 
-### TODO:
 
-- Icon
-- About
+### About
+This displays information about the app, its website, source and updates.
+![About Folder Mapper](art/about.png)
+
+**Figure 2** Unmap Folder
+
+
+### TODO:
 - Status
