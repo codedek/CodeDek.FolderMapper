@@ -269,6 +269,13 @@
                             </Hyperlink>
 
                         </TextBlock>
+                        <TextBlock>
+                            <Hyperlink NavigateUri="{Binding IssuesUrl}"
+                                       Command="{Binding NavigateIssuesUrlCmd}">
+                                Submit Issues and Requests
+                            </Hyperlink>
+
+                        </TextBlock>
 
                     </StackPanel>
                 </Grid>
