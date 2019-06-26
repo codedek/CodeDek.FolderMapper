@@ -3,7 +3,7 @@ This is a Windows App used for mapping or unmapping any folder to and from a dri
 It's still in development but should soon reach final. Keep an eye on releases.
 
 ### License & Copyright
-© 2019 CodeDek. All Rights Reserved.
+Â© 2019 CodeDek. All Rights Reserved.
 Licensed under the [GPL-3.0](LICENSE).
 
 ### Dependencies
@@ -43,4 +43,4 @@ This displays information about the app, its website, source and updates.
 If you have any issues or requests, you can submit your [issues here](https://github.com/codedek/CodeDek.FolderMapper/issues).
 
 ### Downloads
-[Version 1.0](https://github.com/codedek/CodeDek.FolderMapper/releases/tag/v1.0) - [Change log](CHANGELOG)
+[Version 1.0](https://github.com/codedek/CodeDek.FolderMapper/releases/tag/v1.0) - [Change log](CHANGELOG.md)
