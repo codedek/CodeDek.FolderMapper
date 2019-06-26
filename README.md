@@ -2,6 +2,8 @@
 This is a Windows App used for mapping or unmapping any folder to and from a drive.
 It's still in development but should soon reach final. Keep an eye on releases.
 
+![GitHub](https://img.shields.io/github/license/CodeDek/FolderMapper.svg)
+
 ### License & Copyright
 © 2019 CodeDek. All Rights Reserved.
 Licensed under the [GPL-3.0](LICENSE).
