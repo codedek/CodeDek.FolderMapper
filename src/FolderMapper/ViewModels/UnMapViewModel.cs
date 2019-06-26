@@ -1,4 +1,5 @@
 ﻿using System.Collections.ObjectModel;
+using System.Windows.Media;
 using System.Linq;
 using System.Windows;
 using CodeDek.Lib;
@@ -10,6 +11,12 @@ namespace FolderMapper.ViewModels
     {
         private int _selectedIndex;
         private int _selectedMappedPathIndex = -1;
+        private readonly MainViewModel _mainViewModel;
+
+        public UnMapViewModel(MainViewModel mainViewModel)
+        {
+            _mainViewModel = mainViewModel;
+        }
 
         public int SelectedIndex
         {
@@ -54,11 +61,19 @@ namespace FolderMapper.ViewModels
 
             if (letter != default && isMapped)
             {
-                var result = MessageBox.Show("Proceed with unmap?", "Confirmation 😕", MessageBoxButton.YesNo, MessageBoxImage.Question);
+                var result = MessageBox.Show("Proceed with unmapping the drive?", "Confirmation 😕", MessageBoxButton.YesNo, MessageBoxImage.Question);
                 if (result == MessageBoxResult.Yes && Storage.UnmapDrive(letter, MappedPaths[SelectedMappedPathIndex]))
                 {
-                    MessageBox.Show($"Drive {letter} was unmapped from {path}.", "Success 😎", MessageBoxButton.OK, MessageBoxImage.Information);
+                    _mainViewModel.Status = $"Drive ({letter}) was unmapped from ({path.TrimStart(@"\??\".ToCharArray())}). 😎";
+                    _mainViewModel.StatusColor = Brushes.Green;
+                    _mainViewModel.Passage = "";
+                    _mainViewModel.PassageUrl = "";
+
                     GetMappedPathsCmd.Execute();
+                }
+                else
+                {
+                    _mainViewModel.StatusColor = Brushes.Black;
                 }
             }
         }, () => SelectedIndex > 0 && SelectedMappedPathIndex > -1);
@@ -70,9 +85,6 @@ namespace FolderMapper.ViewModels
             SelectedMappedPathIndex = -1;
         }, () => SelectedIndex > 0 && MappedPaths.Count > 0);
 
-        public Cmd ClearSelectionCmd => new Cmd(() =>
-        {
-            SelectedMappedPathIndex = -1;
-        }, () => SelectedMappedPathIndex > -1);
+        public Cmd ClearSelectionCmd => new Cmd(() => SelectedMappedPathIndex = -1, () => SelectedMappedPathIndex > -1);
     }
 }

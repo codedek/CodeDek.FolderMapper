@@ -9,9 +9,9 @@
         Title="{Binding Title}"
         MinHeight="{Binding MinHeight}"
         MinWidth="{Binding MinWidth}"
-        Height="400"
-        Width="600"
-        OpacityMask="Black">
+        Height="480"
+        Width="720"
+        Background="{Binding BackgroundColor, Mode=TwoWay}">
 
     <Window.DataContext>
         <local:MainViewModel x:Name="mvm" />
@@ -77,9 +77,9 @@
             </Style.Triggers>
         </Style>
     </Window.Resources>
-    <Window.Background>
+    <!--<Window.Background>
         <SolidColorBrush Color="#FFF3F3F3" />
-    </Window.Background>
+    </Window.Background>-->
 
     <Grid>
         <Grid.ColumnDefinitions>
@@ -256,9 +256,16 @@
                         <TextBlock Text="{Binding Copyright}" />
                         <TextBlock Text="{Binding Developer}" />
                         <TextBlock>
-                            <Hyperlink NavigateUri="{Binding UpdateUrl}"
-                                       Command="{Binding NavigateProjectUrlCmd}">
-                                Project URL
+                            <Hyperlink NavigateUri="{Binding HomeUrl}"
+                                       Command="{Binding NavigateHomeUrlCmd}">
+                                Project Home
+                            </Hyperlink>
+
+                        </TextBlock>
+                        <TextBlock>
+                            <Hyperlink NavigateUri="{Binding DownloadUrl}"
+                                       Command="{Binding NavigateDownloadUrlCmd}">
+                                Download Latest
                             </Hyperlink>
 
                         </TextBlock>
@@ -268,10 +275,21 @@
             </TabItem>
         </TabControl>
 
-        <TextBlock Grid.Row="2"
-                   Grid.Column="1"
-                   Text="{Binding Status}"
-                   Foreground="{Binding StatusColor}" />
+        <StackPanel Grid.Row="2"
+                    Grid.Column="1"
+                    Orientation="Horizontal">
+
+            <TextBlock Text="{Binding Status, Mode=TwoWay}" Foreground="{Binding StatusColor, Mode=TwoWay}"/>
+            
+            <TextBlock Margin="5,0">
+                    <Hyperlink Command="{Binding GoToUrlCmd}">
+                        <Hyperlink.Inlines>
+                            <Run Text="{Binding Passage, Mode=TwoWay}" />
+                        </Hyperlink.Inlines>
+                    </Hyperlink>
+            </TextBlock>
+        </StackPanel>
+
     </Grid>
 
 </Window>
