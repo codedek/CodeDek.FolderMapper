@@ -29,8 +29,7 @@ This is a Windows App used for mapping or unmapping any folder to and from a dri
 This displays information about the app, its website, source and updates.
 ![About Folder Mapper](art/about.png)
 
-**Figure 2** Unmap Folder
+**Figure 2** About Folder Mapper
 
-
-### TODO:
-- Status
+### Submit Issues or Requests
+If you have any issues or requests, you can submit your [issues here](https://github.com/codedek/CodeDek.FolderMapper/issues).
