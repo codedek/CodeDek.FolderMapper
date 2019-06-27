@@ -286,8 +286,9 @@
                     Grid.Column="1"
                     Orientation="Horizontal">
 
-            <TextBlock Text="{Binding Status, Mode=TwoWay}" Foreground="{Binding StatusColor, Mode=TwoWay}"/>
-            
+            <TextBlock Text="{Binding Status, Mode=TwoWay}"
+                       Foreground="{Binding StatusColor, Mode=TwoWay}" />
+
             <TextBlock Margin="5,0">
                     <Hyperlink Command="{Binding GoToUrlCmd}">
                         <Hyperlink.Inlines>
