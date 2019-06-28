@@ -41,7 +41,8 @@ If you have any issues or requests, you can submit your [issues here](https://gi
 
 
 ### About
-This displays information about the app, its website, source and updates.
+- This displays information about the app, its website, source and updates.
+
 ![Figure 3 About Folder Mapper](art/about.png)
 
 ### Downloads
