@@ -18,9 +18,9 @@ If you have any issues or requests, you can submit your [issues here](https://gi
 ### Dependencies
 - [.NET Framework 4.6.1](https://dotnet.microsoft.com/download/dotnet-framework/net48) (Required to be installed on your machine)
 
-## How to use Features
+## Features
 
-### Map Folder to a drive letter
+### How to Map a Folder to a drive letter
 1. Select a drive letter
 2. Press the Select button to select a folder
 3. Click Map
@@ -28,7 +28,7 @@ If you have any issues or requests, you can submit your [issues here](https://gi
 ![Figure 1 Map a folder](art/map.png)
 
 
-### Unmap Folder from drive letter
+### How to Unmap a Folder from a drive letter
 1. Select the drive letter to unmap
 2. Click Get mapped paths (all paths mapped to the drive letter will be listed)
 3. Select the path to unmap from the list
