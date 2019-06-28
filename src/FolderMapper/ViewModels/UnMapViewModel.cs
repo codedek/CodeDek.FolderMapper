@@ -70,6 +70,7 @@ namespace FolderMapper.ViewModels
                     _mainViewModel.PassageUrl = "";
 
                     GetMappedPathsCmd.Execute();
+                    SelectedIndex = 0;
                 }
                 else
                 {
