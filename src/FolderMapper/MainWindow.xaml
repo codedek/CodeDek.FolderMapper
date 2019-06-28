@@ -256,15 +256,22 @@
                         <TextBlock Text="{Binding Copyright}" />
                         <TextBlock Text="{Binding Developer}" />
                         <TextBlock>
-                            <Hyperlink NavigateUri="{Binding HomeUrl}"
-                                       Command="{Binding NavigateHomeUrlCmd}">
+                            <Hyperlink Command="{Binding NavigateHomeUrlCmd}">
                                 Project Home
                             </Hyperlink>
-
                         </TextBlock>
                         <TextBlock>
-                            <Hyperlink NavigateUri="{Binding DownloadUrl}"
-                                       Command="{Binding NavigateDownloadUrlCmd}">
+                            <Hyperlink Command="{Binding NavigateLicenseUrlCmd}">
+                                License
+                            </Hyperlink>
+                        </TextBlock>
+                        <TextBlock>
+                            <Hyperlink Command="{Binding NavigateChangelogUrlCmd}">
+                                Change log
+                            </Hyperlink>
+                        </TextBlock>
+                        <TextBlock>
+                            <Hyperlink Command="{Binding NavigateDownloadUrlCmd}">
                                 Download Latest
                             </Hyperlink>
 
